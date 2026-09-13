@@ -1,0 +1,14 @@
+services:
+  gpu-hw-sizer:
+    build: .
+    container_name: gpu-hw-sizer
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /var/cache/nginx
+      - /var/run
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
